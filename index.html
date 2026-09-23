@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Utsavbandhu — Plan any event, free</title>
+<meta name="description" content="Free guest list, budget and WhatsApp invitations for any Indian celebration.">
+<meta property="og:title" content="Utsavbandhu"><meta property="og:description" content="Plan any celebration — guests, budget, WhatsApp invites. Free.">
+<meta name="theme-color" content="#7a1f2b"><meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#fff8ee;--card:#fff;--ink:#2b1a14;--mut:#7a6a60;--mar:#7a1f2b;--acc:#7a1f2b;--gold:#c9a24b;--line:#ecdcc4;--wa:#25D366;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a0f11;--card:#2a1a1d;--ink:#f6e9dc;--mut:#b9a596;--acc:#e3b85c;--line:#4a2f33}}
+:root[data-theme="dark"]{--bg:#1a0f11;--card:#2a1a1d;--ink:#f6e9dc;--mut:#b9a596;--acc:#e3b85c;--line:#4a2f33}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 80px}
+h1,h2,.logo{font-family:Georgia,serif;margin:.3em 0}.logo{font-weight:700;color:var(--acc);font-size:20px}
+.gn{text-align:center;font:700 20px Georgia,serif;color:var(--acc);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:8px 0;margin:2px 0 10px;letter-spacing:.5px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.btn{display:block;width:100%;background:var(--mar);color:#fff;border:0;border-bottom:3px solid var(--gold);border-radius:12px;padding:13px;font:600 16px system-ui,sans-serif;margin:10px 0;text-align:center;cursor:pointer}
+.btn.sm{width:auto;padding:9px 14px;margin:0}.wag{background:var(--wa);border-bottom-color:#178a43}
+.ghost{background:none;border:0;color:var(--acc);font:inherit;padding:8px 0;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0}
+.ev{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer}
+.cd{color:var(--acc);font-weight:700;text-align:right}.big{font-size:22px}
+.hero{background:linear-gradient(135deg,#7a1f2b,#a3262f);color:#fff;border-radius:16px;padding:16px;text-align:center;border-bottom:4px solid var(--gold)}.hero .cd{color:var(--gold);text-align:center}.hero small{color:#f3dcc0}
+.chip{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:5px 11px;margin:3px;font-size:14px;background:transparent;color:inherit;cursor:pointer}.hero .chip{cursor:default}.chip.on{background:var(--mar);color:#fff}
+.tabs{display:flex;gap:6px;margin:12px 0}.tabs button{flex:1;padding:10px 4px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:inherit;cursor:pointer}.tabs .on{background:var(--mar);color:#fff;border-color:var(--gold)}
+input,select{width:100%;padding:11px;margin:5px 0;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.row{display:flex;gap:8px;align-items:center}.row label{flex:1;font-size:13px;color:var(--mut)}
+.g{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.gi{flex:1 1 100%}.g select{width:auto;flex:1;margin:0}
+.wa{background:var(--wa);color:#fff;padding:9px 12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.x{background:none;border:0;color:var(--mut);font-size:18px;cursor:pointer}
+.sum{display:flex;text-align:center}.sum div{flex:1}.sum b{font-size:20px;display:block;color:var(--acc)}
+small,.mut{color:var(--mut)}small{display:block}
+.bar2{height:8px;background:var(--line);border-radius:9px;margin-top:10px;overflow:hidden}.bar2 i{display:block;height:100%;background:var(--gold)}
+.note{background:#fff2c9;color:#5a4300;border-radius:10px;padding:10px;font-size:14px;margin:10px 0}
+.ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#0009;display:flex;align-items:flex-end;justify-content:center;z-index:9;padding-top:env(safe-area-inset-top,0px)}
+.sheet{background:var(--card);width:100%;max-width:560px;border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));max-height:90%;overflow:auto}
+#t{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:99px;opacity:0;transition:.2s;pointer-events:none;z-index:99}#t.show{opacity:1}
+.inv{width:100%;border-radius:10px}.neg{color:#d64545}a[data-a]{color:var(--acc);text-decoration:underline;cursor:pointer}
+</style></head><body><div id="app"></div><div id="m"></div><div id="t"></div>
+<script>
+const $=s=>document.querySelector(s);
+const CATS={'💍 Wedding':['Mehendi','Sangeet','Haldi','Shaadi','Reception'],'🎓 School / College':['Farewell','Annual Day',"Teacher's Day","Children's Day"],'🎂 Celebration':['Birthday','Anniversary','Baby Shower / Godh Bharai','Naming Ceremony'],'🙏 Pooja':['Griha Pravesh','Satyanarayan Pooja','Festival'],'🏢 Professional':['Farewell','Promotion Party','Retirement'],'➕ Custom':[]};
+const REL=['Maternal side','Paternal side','Friends','Colleagues','Neighbours','Other'],BUD=['Venue','Catering','Decoration','Clothes','Photography','Other'];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const sum=(a,k)=>a.reduce((s,x)=>s+(+x[k]||0),0);
+const fmt=n=>{n=+n||0;const a=Math.abs(n),f=(x,u)=>'₹'+(+x.toFixed(2))+' '+u;return a>=1e7?f(n/1e7,'Crore'):a>=1e5?f(n/1e5,'Lakh'):a>=1e3?f(n/1e3,'Hazar'):'₹'+n};
+const days=d=>{if(!d)return null;const t=new Date();t.setHours(0,0,0,0);return Math.round((new Date(d+'T00:00:00')-t)/864e5)};
+const cd=d=>{const n=days(d);return n===null?'Set a date':n>0?n+(n==1?' day':' days')+' to go':n===0?'Today! 🎉':'Event done'};
+const dl=d=>d?new Date(d+'T00:00:00').toLocaleDateString('en-IN',{dateStyle:'long'}):'';
+function ls(k,v){try{if(v===undefined){const r=localStorage.getItem(k);return r?JSON.parse(r):null}localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return v===undefined?null:false}}
+let user=ls('utsav:user'),S,view={id:null,tab:'guests'},nv;
+const key=()=>'utsav:d:'+(user?user.email:'guest');
+const load=()=>{S=ls(key())||{demo:true,events:[demo()]}};
+const save=()=>{if(!ls(key(),S))toast('Storage full — try a smaller invitation')};
+const ev=()=>S.events.find(e=>e.id===view.id);
+const heads=e=>e.guests.reduce((a,g)=>a+(+g.heads||1),0);
+function toast(t){const d=$('#t');d.textContent=t;d.className='show';clearTimeout(toast.h);toast.h=setTimeout(()=>d.className='',2600)}
+function modal(h){$('#m').innerHTML=h?`<div class="ov" data-a="close"><div class="sheet">${h}</div></div>`:''}
+function demo(){const d=new Date();d.setDate(d.getDate()+45);const p=(name,rel,heads,rsvp)=>({id:uid(),name,phone:'',rel,heads,rsvp});
+return{id:'demo',name:'Sharma Wedding',fns:['Mehendi','Sangeet','Shaadi','Reception'],date:d.toISOString().slice(0,10),invite:null,
+guests:[p('Rakesh Sharma','Paternal side',4,'Yes'),p('Sunita Mausi','Maternal side',3,'Yes'),p('Amit Verma','Friends',2,'Maybe'),p('Neha Gupta','Colleagues',1,'Pending')],
+budget:[['Venue',300000,250000],['Catering',500000,0],['Decoration',150000,80000],['Clothes',200000,175000],['Photography',100000,50000],['Other',50000,0]].map(([name,est,act])=>({id:uid(),name,est,act}))}}
+const msg=(e,n)=>`Namaste${n?' '+n+' ji':''} 🙏\nYou are warmly invited to ${e.name}${e.date?' on '+dl(e.date):''}.\nYour presence will make it special! 🪔`;
+const wa=(e,g)=>{const p=(g.phone||'').replace(/\D/g,''),n=p.length==10?'91'+p:p;return'https://wa.me/'+n+'?text='+encodeURIComponent(msg(e,g.name))};
+const bar=()=>`<div class="top"><span class="logo">🪔 Utsavbandhu</span><button class="ghost" data-a="login">${user?'👤 '+esc(user.email.split('@')[0])+' · Logout':'Login (optional)'}</button></div>`;
+const home=()=>`<div class="gn">🙏 ॥ Shri Ganeshay Namah ॥ 🙏</div>${bar()}${S.demo?'<div class="note">✨ Sample data — start your own event and it clears automatically.</div>':''}<h2>Your events</h2>${S.events.map(e=>`<div class="card ev" data-a="open" data-id="${e.id}"><div><b>${esc(e.name)}</b><small>${esc(e.fns.join(' · '))}</small></div><div class="cd">${cd(e.date)}</div></div>`).join('')||'<p class="mut">No events yet.</p>'}<button class="btn" data-a="new">＋ Plan a new event</button>`;
+function evView(e){const t=view.tab,body=t=='guests'?guests(e):t=='budget'?budget(e):invite(e);
+return`${bar()}<button class="ghost" data-a="back">← All events</button><div class="hero"><h1>${esc(e.name)}</h1><div class="cd big">${cd(e.date)}</div><small>${dl(e.date)}</small><div>${e.fns.map(f=>`<span class="chip">${esc(f)}</span>`).join('')}</div></div>${S.demo?'<div class="note">✨ Sample data. <a data-a="new">Create your own event</a> — this clears automatically.</div>':''}<nav class="tabs">${[['guests','👥 Guests'],['budget','💰 Budget'],['invite','💌 Invite']].map(([x,l])=>`<button class="${x==t?'on':''}" data-a="tab" data-t="${x}">${l}</button>`).join('')}</nav>${body}`}
+function guests(e){const yes=e.guests.filter(g=>g.rsvp=='Yes').length;
+return`<div class="card sum"><div><b>${e.guests.length}</b><small>invited</small></div><div><b>${heads(e)}</b><small>people</small></div><div><b>${yes}</b><small>confirmed</small></div></div>
+${S.demo?'':`<div class="card"><input id="gn" placeholder="Guest name"><input id="gp" type="tel" placeholder="WhatsApp number (optional)"><div class="row"><select id="gr">${REL.map(r=>`<option>${r}</option>`).join('')}</select><input id="gh" type="number" min="1" value="1" style="width:80px" aria-label="People"></div><button class="btn" data-a="addg">Add guest</button></div>`}
+${e.guests.map(g=>`<div class="card g"><div class="gi"><b>${esc(g.name)}</b><small>${esc(g.rel)} · ${g.heads||1} ${(g.heads||1)>1?'people':'person'}</small></div><select data-c="rsvp" data-id="${g.id}">${['Pending','Yes','Maybe','No'].map(s=>`<option${s==g.rsvp?' selected':''}>${s}</option>`).join('')}</select><a class="wa" href="${wa(e,g)}" target="_blank" rel="noopener">WhatsApp</a>${S.demo?'':`<button class="x" data-a="delg" data-id="${g.id}" aria-label="Remove">✕</button>`}</div>`).join('')}`}
+function budget(e){const est=sum(e.budget,'est'),act=sum(e.budget,'act'),h=heads(e),c=e.budget.find(b=>/cater/i.test(b.name)),pct=est?Math.min(100,act/est*100):0;
+return`<div class="card"><div class="sum"><div><small>Budget</small><b>${fmt(est)}</b></div><div><small>Spent</small><b>${fmt(act)}</b></div><div><small>Remaining</small><b class="${est<act?'neg':''}">${fmt(est-act)}</b></div></div><div class="bar2"><i style="width:${pct}%"></i></div></div>
+<div class="card"><b>Per-head calculator</b><small>${h} people invited${c&&h&&(c.act||c.est)?' · catering now '+fmt((c.act||c.est)/h)+' per head':''}</small><div class="row"><input id="ph" type="number" min="0" inputmode="numeric" placeholder="₹ per head"><button class="btn sm" data-a="ph">Calculate</button></div><div id="phr"></div></div>
+${e.budget.map(b=>`<div class="card"><div class="top"><b>${esc(b.name)}</b>${S.demo?'':`<button class="x" data-a="delb" data-id="${b.id}" aria-label="Remove">✕</button>`}</div><div class="row"><label>Estimated<input type="number" min="0" inputmode="numeric" data-c="est" data-id="${b.id}" value="${b.est||''}"><small>${b.est?fmt(b.est):''}</small></label><label>Actual<input type="number" min="0" inputmode="numeric" data-c="act" data-id="${b.id}" value="${b.act||''}"><small>${b.act?fmt(b.act):''}</small></label></div></div>`).join('')}
+${S.demo?'':'<div class="card row"><input id="bn" placeholder="Add a category (e.g. Gifts)"><button class="btn sm" data-a="addb">Add</button></div>'}`}
+const invite=e=>`<div class="card">${e.invite?(e.invite.startsWith('data:image')?`<img class="inv" src="${e.invite}" alt="Invitation">`:'<p>📄 PDF invitation attached</p>'):'<p class="mut">Upload the invitation card you already have (image or PDF).</p>'}<label class="btn">${e.invite?'Replace':'Upload'} invitation<input type="file" id="f" accept="image/*,application/pdf" hidden></label></div><button class="btn wag" data-a="share">📤 Share invitation</button><p class="mut">Or tap WhatsApp next to any guest — one tap, personalised message.</p>`;
+function render(){const e=view.id&&ev();$('#app').innerHTML=e?evView(e):home()}
+function cats(){$('#cats').innerHTML=Object.keys(CATS).map(c=>`<button class="chip${c==nv.cat?' on':''}" data-a="cat" data-c2="${c}">${c}</button>`).join('');const L=CATS[nv.cat];$('#fns').innerHTML=L.length?'<small>Tap the ones you need:</small>'+L.map(f=>`<button class="chip${nv.fns.has(f)?' on':''}" data-a="fn" data-f="${esc(f)}">${esc(f)}</button>`).join(''):'<small>Name your own event below.</small>'}
+const catRow=e=>{let c=e.budget.find(b=>/cater/i.test(b.name));if(!c){c={id:uid(),name:'Catering',est:0,act:0};e.budget.push(c)}return c};
+const setInv=d=>{ev().invite=d;save();render()};
+function upload(f){if(!f)return;const r=new FileReader();r.onload=()=>{if(f.type.startsWith('image/')){const i=new Image();i.onload=()=>{const k=Math.min(1,1000/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(i,0,0,c.width,c.height);setInv(c.toDataURL('image/jpeg',.8))};i.src=r.result}else if(r.result.length<1.5e6)setInv(r.result);else toast('PDF too large (max ~1 MB)')};r.readAsDataURL(f)}
+function toFile(d){const[h,b]=d.split(','),m=h.match(/:(.*?);/)[1],s=atob(b),a=new Uint8Array(s.length);for(let i=0;i<s.length;i++)a[i]=s.charCodeAt(i);return new File([a],'invitation.'+m.split('/')[1],{type:m})}
+const A={
+open:d=>{view={id:d.id,tab:'guests'};render()},back:()=>{view={id:null};render()},tab:d=>{view.tab=d.t;render()},close:()=>modal(),
+new:()=>{nv={cat:Object.keys(CATS)[0],fns:new Set()};modal(`<h2>Plan an event</h2><small>What are you celebrating?</small><div id="cats"></div><div id="fns"></div><input id="en" placeholder="Event name (e.g. Riya's Wedding)"><input id="ed" type="date" aria-label="Date"><button class="btn" data-a="mk">Create event</button><button class="ghost" data-a="close">Cancel</button>`);cats()},
+cat:d=>{nv.cat=d.c2;nv.fns.clear();cats()},fn:d=>{nv.fns.has(d.f)?nv.fns.delete(d.f):nv.fns.add(d.f);cats()},
+mk:()=>{const L=[...nv.fns],name=$('#en').value.trim()||L.join(' & ');if(!name)return toast('Pick a function or name your event');
+if(S.demo)S={demo:false,events:[]};const e={id:uid(),name,fns:L.length?L:[name],date:$('#ed').value,guests:[],budget:BUD.map(n=>({id:uid(),name:n,est:0,act:0})),invite:null};S.events.unshift(e);save();modal();view={id:e.id,tab:'guests'};render()},
+addg:()=>{const n=$('#gn').value.trim();if(!n)return toast('Enter a name');ev().guests.push({id:uid(),name:n,phone:$('#gp').value,rel:$('#gr').value,heads:+$('#gh').value||1,rsvp:'Pending'});save();render()},
+delg:d=>{const e=ev();e.guests=e.guests.filter(g=>g.id!=d.id);save();render()},
+addb:()=>{const n=$('#bn').value.trim();if(!n)return;ev().budget.push({id:uid(),name:n,est:0,act:0});save();render()},
+delb:d=>{const e=ev();e.budget=e.budget.filter(b=>b.id!=d.id);save();render()},
+ph:()=>{const r=+$('#ph').value||0,h=heads(ev());$('#phr').innerHTML=`<p>${fmt(r)} × ${h} = <b>${fmt(r*h)}</b></p><button class="btn sm" data-a="setcat" data-v="${r*h}">Use as catering estimate</button>`},
+setcat:d=>{catRow(ev()).est=+d.v;save();render()},
+async share(){const e=ev(),text=msg(e);try{const f=e.invite&&toFile(e.invite);if(f&&navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],text,title:e.name});else if(navigator.share)await navigator.share({text,title:e.name});else{await navigator.clipboard.writeText(text);toast('Invite text copied')}}catch(x){}},
+login:()=>{if(user){user=null;ls('utsav:user',null);view={id:null};load();render();return toast('Logged out')}
+modal(`<h2>Save under your Gmail</h2><small>Optional — no OTP. Pick any 5 characters as your PIN: digits, letters, even emojis 🪔. (5 is considered shubh!)</small><input id="le" type="email" placeholder="you@gmail.com" autocomplete="off"><input id="lp" type="password" placeholder="5-character PIN" autocomplete="off"><button class="btn" data-a="signin">Login / Sign up</button><button class="ghost" data-a="close">Not now</button>`)},
+signin:()=>{const em=$('#le').value.trim().toLowerCase(),pin=$('#lp').value;if(!/^[^@\s]+@gmail\.com$/.test(em))return toast('Use your Gmail address');if([...pin].length!=5)return toast('PIN must be exactly 5 characters');
+const U=ls('utsav:users')||{};if(U[em]&&U[em]!==pin)return toast('Wrong PIN');U[em]=pin;ls('utsav:users',U);user={email:em};ls('utsav:user',user);modal();view={id:null};load();render()}};
+document.addEventListener('click',x=>{const b=x.target.closest('[data-a]');if(!b)return;if(b.dataset.a=='close'&&x.target!==b)return;A[b.dataset.a]?.(b.dataset,b)});
+document.addEventListener('change',x=>{const t=x.target;if(t.id=='f')return upload(t.files[0]);const c=t.dataset.c;if(!c)return;const e=ev();
+if(c=='rsvp')e.guests.find(g=>g.id==t.dataset.id).rsvp=t.value;else e.budget.find(b=>b.id==t.dataset.id)[c]=+t.value||0;save();render()});
+const mf=document.createElement('link');mf.rel='manifest';mf.href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify({name:'Utsavbandhu',short_name:'Utsavbandhu',display:'standalone',start_url:'.',background_color:'#7a1f2b',theme_color:'#7a1f2b'}));document.head.appendChild(mf);
+load();render();
+</script></body></html>
