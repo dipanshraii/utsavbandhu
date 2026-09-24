@@ -4,30 +4,31 @@
 <meta name="description" content="Free guest list, budget and WhatsApp invitations for any Indian celebration.">
 <meta property="og:title" content="Utsavbandhu"><meta property="og:description" content="Plan any celebration — guests, budget, WhatsApp invites. Free.">
 <meta name="theme-color" content="#7a1f2b"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-:root{--bg:#fff8ee;--card:#fff;--ink:#2b1a14;--mut:#7a6a60;--mar:#7a1f2b;--acc:#7a1f2b;--gold:#c9a24b;--line:#ecdcc4;--wa:#25D366;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#FFF8EC;--card:#fff;--ink:#1B1B2F;--mut:#6b6577;--mar:#7A1F3D;--acc:#7A1F3D;--gold:#F59E2B;--line:#EADBC3;--wa:#25D366;--c0:#D9779F;--c1:#2DB57A;--c2:#FFE8A6;--c3:#F59E2B;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a0f11;--card:#2a1a1d;--ink:#f6e9dc;--mut:#b9a596;--acc:#e3b85c;--line:#4a2f33}}
 :root[data-theme="dark"]{--bg:#1a0f11;--card:#2a1a1d;--ink:#f6e9dc;--mut:#b9a596;--acc:#e3b85c;--line:#4a2f33}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif}
-#app{max-width:560px;margin:0 auto;padding:12px 14px 80px}
-h1,h2,.logo{font-family:Georgia,serif;margin:.3em 0}.logo{font-weight:700;color:var(--acc);font-size:20px}
-.gn{text-align:center;font:700 20px Georgia,serif;color:var(--acc);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:8px 0;margin:2px 0 10px;letter-spacing:.5px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Poppins,system-ui,-apple-system,'Segoe UI',sans-serif}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 20px}
+h1,h2,.logo{font-family:'DM Serif Display',Georgia,serif;font-weight:400;margin:.3em 0}.logo{color:var(--acc);font-size:24px}
+.gn{text-align:center;font:500 16px Poppins,sans-serif;color:var(--gold);background:var(--mar);border-radius:22px;padding:10px 0 14px;margin:2px 0 10px;letter-spacing:1px}.gn svg{display:block;width:90px;height:78px;margin:0 auto 2px}
 .top{display:flex;justify-content:space-between;align-items:center}
-.btn{display:block;width:100%;background:var(--mar);color:#fff;border:0;border-bottom:3px solid var(--gold);border-radius:12px;padding:13px;font:600 16px system-ui,sans-serif;margin:10px 0;text-align:center;cursor:pointer}
-.btn.sm{width:auto;padding:9px 14px;margin:0}.wag{background:var(--wa);border-bottom-color:#178a43}
+.btn{display:block;width:100%;background:var(--gold);color:#1B1B2F;border:2px solid #1B1B2F;border-radius:999px;padding:12px;font:500 15px Poppins,system-ui,sans-serif;margin:10px 0;text-align:center;cursor:pointer}
+.btn.sm{width:auto;padding:9px 14px;margin:0}.wag{background:var(--wa)}
 .ghost{background:none;border:0;color:var(--acc);font:inherit;padding:8px 0;cursor:pointer}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin:10px 0}
 .ev{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer}
-.cd{color:var(--acc);font-weight:700;text-align:right}.big{font-size:22px}
-.hero{background:linear-gradient(135deg,#7a1f2b,#a3262f);color:#fff;border-radius:16px;padding:16px;text-align:center;border-bottom:4px solid var(--gold)}.hero .cd{color:var(--gold);text-align:center}.hero small{color:#f3dcc0}
+.cd{color:inherit;font-weight:500;text-align:right}.big{font-size:18px}.bn{font:400 64px/1 'DM Serif Display',Georgia,serif;color:#FFF8EC}.ev,.ev small{color:#1B1B2F}.ev small{color:#3a3350}.ev b{font:400 22px 'DM Serif Display',Georgia,serif}
+.hero{background:var(--mar);color:#FFF8EC;border-radius:24px;padding:18px 16px 20px;text-align:center}.hero .cd{color:#FFE8B0;text-align:center}.hero small{color:#FFE8B0}.hero h1{color:#FFF8EC;font-size:30px}
 .chip{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:5px 11px;margin:3px;font-size:14px;background:transparent;color:inherit;cursor:pointer}.hero .chip{cursor:default}.chip.on{background:var(--mar);color:#fff}
-.tabs{display:flex;gap:6px;margin:12px 0}.tabs button{flex:1;padding:10px 4px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:inherit;cursor:pointer}.tabs .on{background:var(--mar);color:#fff;border-color:var(--gold)}
+.tabs{display:flex;gap:6px;margin:12px 0}.tabs button{flex:1;padding:10px 4px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;font:inherit;cursor:pointer}.tabs .on{background:var(--mar);color:#fff;border-color:var(--mar)}
 input,select{width:100%;padding:11px;margin:5px 0;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
 .row{display:flex;gap:8px;align-items:center}.row label{flex:1;font-size:13px;color:var(--mut)}
 .g{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.gi{flex:1 1 100%}.g select{width:auto;flex:1;margin:0}
-.wa{background:var(--wa);color:#fff;padding:9px 12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.wa{background:var(--wa);color:#fff;padding:9px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px}
 .x{background:none;border:0;color:var(--mut);font-size:18px;cursor:pointer}
 .sum{display:flex;text-align:center}.sum div{flex:1}.sum b{font-size:20px;display:block;color:var(--acc)}
 small,.mut{color:var(--mut)}small{display:block}
@@ -36,8 +37,24 @@ small,.mut{color:var(--mut)}small{display:block}
 .ov{position:fixed;top:0;left:0;right:0;bottom:0;background:#0009;display:flex;align-items:flex-end;justify-content:center;z-index:9;padding-top:env(safe-area-inset-top,0px)}
 .sheet{background:var(--card);width:100%;max-width:560px;border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));max-height:90%;overflow:auto}
 #t{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:99px;opacity:0;transition:.2s;pointer-events:none;z-index:99}#t.show{opacity:1}
-.inv{width:100%;border-radius:10px}.neg{color:#d64545}a[data-a]{color:var(--acc);text-decoration:underline;cursor:pointer}
-</style></head><body><div id="app"></div><div id="m"></div><div id="t"></div>
+.inv{width:100%;border-radius:14px}
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}
+.k{position:relative;border-radius:20px;padding:14px;color:#1B1B2F;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.k b{font:400 34px/1 'DM Serif Display',Georgia,serif;display:block}.k span{font-size:13px}
+.k .st{position:absolute;top:6px;right:6px;width:64px;height:56px}
+.k.kp{background:var(--c0);grid-row:span 2;min-height:200px}.k.kg{background:var(--c1)}.k.kh{background:var(--c2)}.k.ks{background:var(--c3)}.k.w2{grid-column:span 2}
+.k.w2~.k b{font-size:26px}
+.k .bar2{background:#1B1B2F33}.k .bar2 i{background:#1B1B2F}.k .neg{color:#B3261E}
+.ic{display:block;width:120px;height:104px;margin:0 auto}
+.ft{text-align:center;padding:28px 14px 60px;max-width:560px;margin:0 auto}.ft h2{color:var(--acc)}.ft a{color:var(--acc);font-weight:500}.ft .g2{color:var(--acc);font-weight:500;letter-spacing:1px;margin:4px 0}.neg{color:#d64545}a[data-a]{color:var(--acc);text-decoration:underline;cursor:pointer}
+</style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs><g id="fl"><circle cy="-5" r="4"/><circle cx="5" r="4"/><circle cy="5" r="4"/><circle cx="-5" r="4"/><circle r="1.6"/></g></defs>
+<symbol id="i-guest" viewBox="30 8 110 95"><g fill="none" stroke="#1B1B2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="50" y="22" width="60" height="76" rx="7" fill="#fff"/><rect x="66" y="15" width="28" height="13" rx="4" fill="#FFE8A6"/><circle cx="66" cy="46" r="5" fill="#FFE8A6"/><path d="M76 46h24"/><circle cx="66" cy="64" r="5" fill="#FFE8A6"/><path d="M76 64h24"/><circle cx="66" cy="82" r="5" fill="#FFE8A6"/><path d="M76 82h16"/><use href="#fl" x="130" y="36"/><path d="M122 70q4-6 8 0t8 0"/></g></symbol>
+<symbol id="i-coin" viewBox="30 8 110 95"><g fill="none" stroke="#1B1B2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="104" cy="78" r="14" fill="#FFD27A"/><circle cx="72" cy="58" r="28" fill="#FFE8A6"/><path d="M62 48H82M62 56H82M62 48C77 48 77 64 64 64L79 78"/><path d="M108 34l4-6M118 44l7-2M96 26v-7"/></g></symbol>
+<symbol id="i-card" viewBox="30 8 110 95"><g fill="none" stroke="#1B1B2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="56" y="22" width="48" height="38" rx="3" fill="#FFE8A6"/><use href="#fl" x="80" y="36"/><rect x="44" y="46" width="72" height="48" rx="5" fill="#fff"/><path d="M44 50L80 74L116 50"/><path d="M44 92L68 70M116 92L92 70"/><path d="M120 30q4-6 8 0t8 0"/></g></symbol>
+<symbol id="i-diya" viewBox="30 8 110 95"><g fill="none" stroke="#FFE8B0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M44 66H116Q110 92 80 94Q50 92 44 66Z" fill="#F59E2B"/><path d="M80 26C93 40 93 54 80 62C67 54 67 40 80 26Z" fill="#FFB238"/><ellipse cx="80" cy="50" rx="4" ry="6" fill="#FFF1B8" stroke="none"/><path d="M60 36l-6-4M100 36l6-4M80 18v-5"/><path d="M56 78Q80 86 104 78"/><use href="#fl" x="132" y="82"/></g></symbol>
+<symbol id="i-chai" viewBox="30 8 110 95"><g fill="none" stroke="#1B1B2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M70 38q-6-7 0-13q6-6 0-11"/><path d="M90 38q-6-7 0-13q6-6 0-11"/><path d="M54 46H106L100 92Q80 98 60 92Z" fill="#E58F5B"/><ellipse cx="80" cy="46" rx="26" ry="6" fill="#F4B98F"/><path d="M58 68Q80 74 102 68"/><use href="#fl" x="128" y="62"/><path d="M118 86q4-6 8 0t8 0"/></g></symbol>
+</svg><div id="app"></div><footer class="ft"><h2>Thank you for celebrating with us</h2><svg class="ic" aria-hidden="true"><use href="#i-chai"/></svg><p class="g2">॥ Shri Ganeshay Namah ॥</p><p>Questions? <a href="https://instagram.com/dipansh_rai_8055" target="_blank" rel="noopener">Instagram</a></p><small>Made by Dipansh Rai</small></footer><div id="m"></div><div id="t"></div>
 <script>
 const $=s=>document.querySelector(s);
 const CATS={'💍 Wedding':['Mehendi','Sangeet','Haldi','Shaadi','Reception'],'🎓 School / College':['Farewell','Annual Day',"Teacher's Day","Children's Day"],'🎂 Celebration':['Birthday','Anniversary','Baby Shower / Godh Bharai','Naming Ceremony'],'🙏 Pooja':['Griha Pravesh','Satyanarayan Pooja','Festival'],'🏢 Professional':['Farewell','Promotion Party','Retirement'],'➕ Custom':[]};
@@ -48,6 +65,7 @@ const sum=(a,k)=>a.reduce((s,x)=>s+(+x[k]||0),0);
 const fmt=n=>{n=+n||0;const a=Math.abs(n),f=(x,u)=>'₹'+(+x.toFixed(2))+' '+u;return a>=1e7?f(n/1e7,'Crore'):a>=1e5?f(n/1e5,'Lakh'):a>=1e3?f(n/1e3,'Hazar'):'₹'+n};
 const days=d=>{if(!d)return null;const t=new Date();t.setHours(0,0,0,0);return Math.round((new Date(d+'T00:00:00')-t)/864e5)};
 const cd=d=>{const n=days(d);return n===null?'Set a date':n>0?n+(n==1?' day':' days')+' to go':n===0?'Today! 🎉':'Event done'};
+const bigcd=d=>{const n=days(d);return n>0?'<span class="bn">'+n+'</span> '+(n==1?'day':'days')+' to go':cd(d)};
 const dl=d=>d?new Date(d+'T00:00:00').toLocaleDateString('en-IN',{dateStyle:'long'}):'';
 function ls(k,v){try{if(v===undefined){const r=localStorage.getItem(k);return r?JSON.parse(r):null}localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return v===undefined?null:false}}
 let user=ls('utsav:user'),S,view={id:null,tab:'guests'},nv;
@@ -65,19 +83,19 @@ budget:[['Venue',300000,250000],['Catering',500000,0],['Decoration',150000,80000
 const msg=(e,n)=>`Namaste${n?' '+n+' ji':''} 🙏\nYou are warmly invited to ${e.name}${e.date?' on '+dl(e.date):''}.\nYour presence will make it special! 🪔`;
 const wa=(e,g)=>{const p=(g.phone||'').replace(/\D/g,''),n=p.length==10?'91'+p:p;return'https://wa.me/'+n+'?text='+encodeURIComponent(msg(e,g.name))};
 const bar=()=>`<div class="top"><span class="logo">🪔 Utsavbandhu</span><button class="ghost" data-a="login">${user?'👤 '+esc(user.email.split('@')[0])+' · Logout':'Login (optional)'}</button></div>`;
-const home=()=>`<div class="gn">🙏 ॥ Shri Ganeshay Namah ॥ 🙏</div>${bar()}${S.demo?'<div class="note">✨ Sample data — start your own event and it clears automatically.</div>':''}<h2>Your events</h2>${S.events.map(e=>`<div class="card ev" data-a="open" data-id="${e.id}"><div><b>${esc(e.name)}</b><small>${esc(e.fns.join(' · '))}</small></div><div class="cd">${cd(e.date)}</div></div>`).join('')||'<p class="mut">No events yet.</p>'}<button class="btn" data-a="new">＋ Plan a new event</button>`;
+const home=()=>`<div class="gn"><svg aria-hidden="true"><use href="#i-diya"/></svg>॥ Shri Ganeshay Namah ॥</div>${bar()}${S.demo?'<div class="note">✨ Sample data — start your own event and it clears automatically.</div>':''}<h2>Your events</h2>${S.events.map((e,i)=>`<div class="card ev" style="background:var(--c${i%4});border-color:transparent" data-a="open" data-id="${e.id}"><div><b>${esc(e.name)}</b><small>${esc(e.fns.join(' · '))}</small></div><div class="cd">${cd(e.date)}</div></div>`).join('')||'<p class="mut">No events yet.</p>'}<button class="btn" data-a="new">＋ Plan a new event</button>`;
 function evView(e){const t=view.tab,body=t=='guests'?guests(e):t=='budget'?budget(e):invite(e);
-return`${bar()}<button class="ghost" data-a="back">← All events</button><div class="hero"><h1>${esc(e.name)}</h1><div class="cd big">${cd(e.date)}</div><small>${dl(e.date)}</small><div>${e.fns.map(f=>`<span class="chip">${esc(f)}</span>`).join('')}</div></div>${S.demo?'<div class="note">✨ Sample data. <a data-a="new">Create your own event</a> — this clears automatically.</div>':''}<nav class="tabs">${[['guests','👥 Guests'],['budget','💰 Budget'],['invite','💌 Invite']].map(([x,l])=>`<button class="${x==t?'on':''}" data-a="tab" data-t="${x}">${l}</button>`).join('')}</nav>${body}`}
+return`${bar()}<button class="ghost" data-a="back">← All events</button><div class="hero"><h1>${esc(e.name)}</h1><div class="cd big">${bigcd(e.date)}</div><small>${dl(e.date)}</small><div>${e.fns.map(f=>`<span class="chip">${esc(f)}</span>`).join('')}</div></div>${S.demo?'<div class="note">✨ Sample data. <a data-a="new">Create your own event</a> — this clears automatically.</div>':''}<nav class="tabs">${[['guests','👥 Guests'],['budget','💰 Budget'],['invite','💌 Invite']].map(([x,l])=>`<button class="${x==t?'on':''}" data-a="tab" data-t="${x}">${l}</button>`).join('')}</nav>${body}`}
 function guests(e){const yes=e.guests.filter(g=>g.rsvp=='Yes').length;
-return`<div class="card sum"><div><b>${e.guests.length}</b><small>invited</small></div><div><b>${heads(e)}</b><small>people</small></div><div><b>${yes}</b><small>confirmed</small></div></div>
+return`<div class="bento"><div class="k kp"><svg class="st" aria-hidden="true"><use href="#i-guest"/></svg><b>${heads(e)}</b><span>people</span></div><div class="k kg"><b>${yes}</b><span>confirmed</span></div><div class="k kh"><b>${e.guests.length}</b><span>invited</span></div></div>
 ${S.demo?'':`<div class="card"><input id="gn" placeholder="Guest name"><input id="gp" type="tel" placeholder="WhatsApp number (optional)"><div class="row"><select id="gr">${REL.map(r=>`<option>${r}</option>`).join('')}</select><input id="gh" type="number" min="1" value="1" style="width:80px" aria-label="People"></div><button class="btn" data-a="addg">Add guest</button></div>`}
 ${e.guests.map(g=>`<div class="card g"><div class="gi"><b>${esc(g.name)}</b><small>${esc(g.rel)} · ${g.heads||1} ${(g.heads||1)>1?'people':'person'}</small></div><select data-c="rsvp" data-id="${g.id}">${['Pending','Yes','Maybe','No'].map(s=>`<option${s==g.rsvp?' selected':''}>${s}</option>`).join('')}</select><a class="wa" href="${wa(e,g)}" target="_blank" rel="noopener">WhatsApp</a>${S.demo?'':`<button class="x" data-a="delg" data-id="${g.id}" aria-label="Remove">✕</button>`}</div>`).join('')}`}
 function budget(e){const est=sum(e.budget,'est'),act=sum(e.budget,'act'),h=heads(e),c=e.budget.find(b=>/cater/i.test(b.name)),pct=est?Math.min(100,act/est*100):0;
-return`<div class="card"><div class="sum"><div><small>Budget</small><b>${fmt(est)}</b></div><div><small>Spent</small><b>${fmt(act)}</b></div><div><small>Remaining</small><b class="${est<act?'neg':''}">${fmt(est-act)}</b></div></div><div class="bar2"><i style="width:${pct}%"></i></div></div>
+return`<div class="bento"><div class="k kg w2"><svg class="st" aria-hidden="true"><use href="#i-coin"/></svg><b>${fmt(act)}</b><span>spent of ${fmt(est)}</span><div class="bar2"><i style="width:${pct}%"></i></div></div><div class="k kh"><b class="${est<act?'neg':''}">${fmt(est-act)}</b><span>remaining</span></div><div class="k ks"><b>${fmt(est)}</b><span>budget</span></div></div>
 <div class="card"><b>Per-head calculator</b><small>${h} people invited${c&&h&&(c.act||c.est)?' · catering now '+fmt((c.act||c.est)/h)+' per head':''}</small><div class="row"><input id="ph" type="number" min="0" inputmode="numeric" placeholder="₹ per head"><button class="btn sm" data-a="ph">Calculate</button></div><div id="phr"></div></div>
 ${e.budget.map(b=>`<div class="card"><div class="top"><b>${esc(b.name)}</b>${S.demo?'':`<button class="x" data-a="delb" data-id="${b.id}" aria-label="Remove">✕</button>`}</div><div class="row"><label>Estimated<input type="number" min="0" inputmode="numeric" data-c="est" data-id="${b.id}" value="${b.est||''}"><small>${b.est?fmt(b.est):''}</small></label><label>Actual<input type="number" min="0" inputmode="numeric" data-c="act" data-id="${b.id}" value="${b.act||''}"><small>${b.act?fmt(b.act):''}</small></label></div></div>`).join('')}
 ${S.demo?'':'<div class="card row"><input id="bn" placeholder="Add a category (e.g. Gifts)"><button class="btn sm" data-a="addb">Add</button></div>'}`}
-const invite=e=>`<div class="card">${e.invite?(e.invite.startsWith('data:image')?`<img class="inv" src="${e.invite}" alt="Invitation">`:'<p>📄 PDF invitation attached</p>'):'<p class="mut">Upload the invitation card you already have (image or PDF).</p>'}<label class="btn">${e.invite?'Replace':'Upload'} invitation<input type="file" id="f" accept="image/*,application/pdf" hidden></label></div><button class="btn wag" data-a="share">📤 Share invitation</button><p class="mut">Or tap WhatsApp next to any guest — one tap, personalised message.</p>`;
+const invite=e=>`<div class="card">${e.invite?(e.invite.startsWith('data:image')?`<img class="inv" src="${e.invite}" alt="Invitation">`:'<p>📄 PDF invitation attached</p>'):'<svg class="ic" aria-hidden="true"><use href="#i-card"/></svg><p class="mut" style="text-align:center">Upload the invitation card you already have (image or PDF).</p>'}<label class="btn">${e.invite?'Replace':'Upload'} invitation<input type="file" id="f" accept="image/*,application/pdf" hidden></label></div><button class="btn wag" data-a="share">📤 Share invitation</button><p class="mut">Or tap WhatsApp next to any guest — one tap, personalised message.</p>`;
 function render(){const e=view.id&&ev();$('#app').innerHTML=e?evView(e):home()}
 function cats(){$('#cats').innerHTML=Object.keys(CATS).map(c=>`<button class="chip${c==nv.cat?' on':''}" data-a="cat" data-c2="${c}">${c}</button>`).join('');const L=CATS[nv.cat];$('#fns').innerHTML=L.length?'<small>Tap the ones you need:</small>'+L.map(f=>`<button class="chip${nv.fns.has(f)?' on':''}" data-a="fn" data-f="${esc(f)}">${esc(f)}</button>`).join(''):'<small>Name your own event below.</small>'}
 const catRow=e=>{let c=e.budget.find(b=>/cater/i.test(b.name));if(!c){c={id:uid(),name:'Catering',est:0,act:0};e.budget.push(c)}return c};
